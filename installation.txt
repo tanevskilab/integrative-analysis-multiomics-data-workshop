@@ -1,0 +1,47 @@
+## TOAST + spatialdata & DOTpy — Pixi installation
+
+Pixi uses conda-forge to resolve everything in one shot, avoiding the pip
+backtracking failures that occur when installing spatialdata into a plain
+conda environment.
+
+---
+
+### 1. Install Pixi (one-time, system-wide)
+
+    curl -fsSL https://pixi.sh/install.sh | bash
+
+Restart your terminal afterwards (or run: source ~/.zshrc)
+
+---
+
+### 2. Navigate to this directory
+
+    cd /home/user/integrative-analysis-multiomics-data-workshop
+
+---
+
+### 3. Build/run the environment
+
+    pixi run -e toast jupyter notebook 
+    pixi run -e dotpy jupyter lab
+
+Pixi reads pixi.toml in this directory, resolves all conda-forge packages, then pip-installs
+either remote libraires (like TOAST) or installs local libraires in case you need to point
+to a specific commit (which is done for DOTpy).
+
+The environment is stored in .pixi/envs/default/ — it is self-contained
+and does not touch any existing conda environments.
+
+---
+
+### 4. Adding packages later
+
+    pixi add <package-name>          # from conda-forge
+    pixi add --pypi <package-name>   # from PyPI
+
+---
+
+### Notes
+
+- pixi.toml is the environment specification file (equivalent to environment.yml).
+- To update all packages: pixi update
