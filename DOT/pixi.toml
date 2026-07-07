@@ -1,0 +1,33 @@
+[workspace]
+authors = ["leotenshii <leotenshii@gmail.com>"]
+channels = ["conda-forge"]
+name = "dotpy"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+lab = "MPLCONFIGDIR=.matplotlib jupyter lab"
+check-gpu = "python -c \"import torch; print(torch.cuda.is_available())\""
+check-stack = "MPLCONFIGDIR=.matplotlib python -c \"import scanpy, anndata, torch, scipy, sklearn, matplotlib, pandas, dotpy; print('stack ok')\""
+notebook = "MPLCONFIGDIR=.matplotlib jupyter lab quickstart.ipynb"
+check-gpu2 = "LD_LIBRARY_PATH=/run/opengl-driver/lib:${LD_LIBRARY_PATH:-} python -c \"import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'no cuda')\""
+
+
+[dependencies]
+python = "3.11.*"
+numpy = ">=2.4.6,<3"
+scanpy = ">=1.9.0"
+anndata = ">=0.8.0"
+matplotlib = ">=3.11.0,<4"
+scikit-learn = ">=1.9.0,<2"
+scipy = ">=1.17.1,<2"
+ipykernel = ">=7.3.0,<8"
+jupyterlab = ">=4.6.0,<5"
+scikit-misc = ">=0.5.2,<0.6"
+python-igraph = ">=0.11,<2"
+leidenalg = ">=0.10,<1"
+
+[pypi-dependencies]
+torch = ">=1.10.0"
+torchvision = ">=0.25.0, <0.26"
+# dotpy = { path = "./DOTpy", editable = true }
