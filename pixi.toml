@@ -45,6 +45,11 @@ ipykernel = "*"
 notebook = "*"
 numba = ">=0.55"
 umap-learn = "*"
+igraph = "*"
+python-igraph = "*"
+leidenalg = "*"
+pynvml = "*"
+pytorch = ">=2.12.1,<3"
 
 [feature.toast.pypi-dependencies]
 toast-spatial-ot = { git = "https://github.com/cecca46/TOAST.git" }
