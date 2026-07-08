@@ -16,6 +16,13 @@ dotpy = { features = ["dotpy"], no-default-feature = true }
 [feature.toast]
 platforms = ["osx-arm64", "linux-64"]
 
+# spatialdata hard-depends on conda-forge `pytorch`, which otherwise resolves to
+# a CPU-only build. Declaring cuda capability here (plus the linux-64-only
+# cuda-version pin below) makes the solver pick the CUDA-enabled pytorch build
+# on linux-64. No-op on osx-arm64: there is no CUDA-enabled build for macOS.
+[feature.toast.system-requirements]
+cuda = "12"
+
 [feature.toast.dependencies]
 python = "3.11.*"
 
@@ -50,6 +57,9 @@ python-igraph = "*"
 leidenalg = "*"
 pynvml = "*"
 pytorch = ">=2.12.1,<3"
+
+[feature.toast.target.linux-64.dependencies]
+cuda-version = ">=12,<13"
 
 [feature.toast.pypi-dependencies]
 toast-spatial-ot = { git = "https://github.com/cecca46/TOAST.git" }
