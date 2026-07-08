@@ -4,7 +4,14 @@ version = "0.1.0"
 description = "TOAST + spatialdata and DOTpy environments for the multiomics workshop"
 authors = ["leotenshii <leotenshii@gmail.com>"]
 channels = ["conda-forge"]
-platforms = ["osx-arm64", "linux-64"]
+# spatialdata hard-depends on conda-forge `pytorch`, which otherwise resolves to
+# a CPU-only build. Declaring cuda capability on the linux-64 entry (requires
+# pixi >=0.72) makes the solver pick the CUDA-enabled pytorch build there (see
+# the cuda-version pin under feature.toast below). No effect on osx-arm64:
+# there is no CUDA-enabled build for macOS.
+# NOTE: no [feature.*.platforms] override may coexist with this enriched form —
+# every feature must inherit platforms from here rather than re-declaring them.
+platforms = [{ platform = "linux-64", cuda = "12" }, "osx-arm64"]
 
 [environments]
 toast = { features = ["toast"], no-default-feature = true }
@@ -14,14 +21,6 @@ dotpy = { features = ["dotpy"], no-default-feature = true }
 # TOAST + spatialdata environment
 # ---------------------------------------------------------------------------
 [feature.toast]
-platforms = ["osx-arm64", "linux-64"]
-
-# spatialdata hard-depends on conda-forge `pytorch`, which otherwise resolves to
-# a CPU-only build. Declaring cuda capability here (plus the linux-64-only
-# cuda-version pin below) makes the solver pick the CUDA-enabled pytorch build
-# on linux-64. No-op on osx-arm64: there is no CUDA-enabled build for macOS.
-[feature.toast.system-requirements]
-cuda = "12"
 
 [feature.toast.dependencies]
 python = "3.11.*"
@@ -68,7 +67,6 @@ toast-spatial-ot = { git = "https://github.com/cecca46/TOAST.git" }
 # DOTpy environment
 # ---------------------------------------------------------------------------
 [feature.dotpy]
-platforms = ["osx-arm64", "linux-64"]
 
 [feature.dotpy.dependencies]
 python = "3.11.*"
