@@ -1,19 +1,22 @@
 # Integrative Analysis of Multiomics Data Workshop
 
-This repository contains tutorial material for **TOAST** (Topography-Aware Optimal Alignment of Spatially Resolved Tissues), an optimal transport framework for aligning spatial omics data.
+This repository contains tutorial material for **TOAST** (Topography-Aware Optimal Alignment of Spatially Resolved Tissues), an optimal transport framework for aligning spatial omics data, and **DOT**
 
 TOAST extends the classical Fused Gromov-Wasserstein (FGW) objective with two spatially informed terms — *spatial coherence* and *neighbourhood consistency* — that preserve local tissue organisation and molecular heterogeneity during alignment. It supports slice-to-slice alignment, multimodal integration (e.g. transcriptomics + proteomics), and spatial reconstruction from dissociated single-cell data.
 
 > Ceccarelli et al., *Topography-aware optimal transport for alignment of spatial omics data*, Cell Reports Methods (2026). https://doi.org/10.1016/j.crmeth.2026.101373
 
+On the other hand... DOT
+
+> Bibliography
 ---
 
 ## Contents
 
 | Notebook | Description |
 |---|---|
-| [`visium.ipynb`](visium.ipynb) | Evaluation of TOAST on the human dorsolateral prefrontal cortex (DLPFC) 10× Visium dataset. Reproduces Figure 3 of the paper: consecutive, non-consecutive, and cross-sample slice alignment benchmarks. |
-| `xenium_tutorial.ipynb` | *(coming soon)* Multimodal alignment of Xenium transcript and protein data. |
+| [`TOAST/visium.ipynb`](visium.ipynb) | Evaluation of TOAST on the human dorsolateral prefrontal cortex (DLPFC) 10× Visium dataset. Reproduces Figure 3 of the paper: consecutive, non-consecutive, and cross-sample slice alignment benchmarks. |
+| `TOAST/xenium_tutorial.ipynb` | Multimodal alignment of Xenium transcript and protein data. |
 
 ---
 
