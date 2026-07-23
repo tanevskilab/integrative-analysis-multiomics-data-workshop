@@ -86,8 +86,8 @@ leidenalg = ">=0.10,<1"
 [feature.dotpy.pypi-dependencies]
 torch = ">=1.10.0"
 torchvision = ">=0.25.0, <0.26"
-#dotpy = { git = "https://github.com/earmingol/DOTpy"}
-dotpy = { path = "DOT/DOTpy", editable = true }
+dotpy = { git = "https://github.com/earmingol/DOTpy"}
+#dotpy = { path = "DOT/DOTpy", editable = true }
 
 [feature.dotpy.tasks]
 lab = "cd DOT && MPLCONFIGDIR=.matplotlib jupyter lab"
