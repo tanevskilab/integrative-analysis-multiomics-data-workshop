@@ -17,7 +17,7 @@ DOT uses optimal transport to transfer cell type labels, gene expression, and ot
 | Notebook | Description |
 |---|---|
 | [`TOAST/visium.ipynb`](visium.ipynb) | Evaluation of TOAST on the human dorsolateral prefrontal cortex (DLPFC) 10× Visium dataset. Reproduces Figure 3 of the paper: consecutive, non-consecutive, and cross-sample slice alignment benchmarks. |
-| `TOAST/xenium_tutorial.ipynb` | Multimodal alignment of Xenium transcript and protein data. |
+| `TOAST/MultimodalAlignment.ipynb` | Multimodal alignment of Xenium transcript and protein data. |
 | `DOT/Cortical_layer_annotation_transfer.ipynb` | LIBD/DLPFC Visium-to-Visium cortical-layer annotation transfer. Known layer labels from source sections are transferred to target sections, while target labels are withheld during fitting and used afterward as ground truth for accuracy evaluation. |
 | `DOT/Gene_expression_imputation.ipynb` | Breast-cancer Xenium gene-expression imputation. DOT learns reference-community weights for Xenium cells from genes shared with a transcriptome-wide single-cell reference, then reconstructs measured Xenium genes and imputes genes absent from the Xenium panel for comparison with aligned Visium data. |
 
